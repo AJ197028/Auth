@@ -21,6 +21,7 @@ const AuthForm = () => {
 
     //optional: Add validation
 
+    setIsLoading(true);
     if (isLogin) {
 
     } else {
@@ -38,7 +39,7 @@ const AuthForm = () => {
           }
         }
       ).then(res => {
-        setIsLoading(true);
+        setIsLoading(false);
         if (res.ok) {
           
         } else {
@@ -73,7 +74,7 @@ const AuthForm = () => {
         </div>
         <div className={classes.actions}>
           {!isloading && <button>{isLogin ? "Login" : "Create Account"}</button>}
-          {isloading && <h3>Sending request...</h3>}
+          {isloading && <p>Sending request...</p>}
           <button
             type='button'
             className={classes.toggle}
